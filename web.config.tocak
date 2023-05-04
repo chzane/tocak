@@ -1,0 +1,9 @@
+{
+  "http_config": {
+    "index": "./webapp/",
+    "port": "7778"
+  },
+  "error_page": {
+    "404": " <title>404 error</title><h1>404 error</h1><hr><p>sorry,file not found.<br>Please check the URL you entered or contact developers.</p><p>tocak</p>"
+  }
+}
