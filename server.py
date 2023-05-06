@@ -37,10 +37,13 @@ def handle_client(client_socket):
 
             if len(retarray[len(ret.group(1))]) == 0:
                 retarray[0] = "/"
-            if retarray[len(ret.group(1))] == "/":
-                file_path = conf["http_config"]["index"] + ret.group(1) + "index.html"
-            if not(retarray[len(ret.group(1))] == "/") and not("index.html" in ret.group(1)):
-                file_path = conf["http_config"]["index"] + ret.group(1) + "/index.html"
+            if "." in ret.group(1): # is file
+                file_path = conf["http_config"]["index"] + ret.group(1)
+            else:
+                if retarray[len(ret.group(1))] == "/":
+                    file_path = conf["http_config"]["index"] + ret.group(1) + "index.html"
+                if not(retarray[len(ret.group(1))] == "/") and not("index.html" in ret.group(1)):
+                    file_path = conf["http_config"]["index"] + ret.group(1) + "/index.html"
 
             print("file_path *******", file_path)
 
